@@ -15,6 +15,17 @@ public class ParseApp extends Application {
 
         ParseObject.registerSubclass(Post.class);
 
+
+        // Use for monitoring Parse OkHttp traffic
+        // Can be Level.BASIC, Level.HEADERS, or Level.BODY
+        // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
+       /* OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        builder.networkInterceptors().add(httpLoggingInterceptor);*/
+
+
+
         final Parse.Configuration configuration = new Parse.Configuration.Builder(this)
                 .applicationId("shannonjordan")
                 .clientKey("31312310")
