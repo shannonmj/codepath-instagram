@@ -28,7 +28,6 @@ public class ProfileActivity extends AppCompatActivity {
                     ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
                     final Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
                     startActivity(intent);
-                    //finish();
                 }
             });
 
