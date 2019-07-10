@@ -24,8 +24,6 @@ public class ParseApp extends Application {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.networkInterceptors().add(httpLoggingInterceptor);*/
 
-
-
         final Parse.Configuration configuration = new Parse.Configuration.Builder(this)
                 .applicationId("shannonjordan")
                 .clientKey("31312310")
