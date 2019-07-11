@@ -13,6 +13,8 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
+//  TODO what is first required feature
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText etUsername;

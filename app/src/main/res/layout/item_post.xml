@@ -19,13 +19,13 @@
 
     <TextView
         android:id="@+id/tvHandle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="376dp"
+        android:layout_height="19dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:textAppearance="@android:style/TextAppearance.SearchResult.Title"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/ivImage"
@@ -37,10 +37,13 @@
 
     <ImageView
         android:id="@+id/ivImage"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/tvDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -50,17 +53,47 @@
 
     <TextView
         android:id="@+id/tvDescription"
-        android:layout_width="0dp"
+        android:layout_width="376dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivImage"
         tools:text="hipster" />
+
+    <ImageView
+        android:id="@+id/ivChat"
+        android:layout_width="32dp"
+        android:layout_height="26dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivHeart"
+        app:layout_constraintTop_toTopOf="@+id/ivHeart"
+        app:srcCompat="@drawable/chat" />
+
+    <ImageView
+        android:id="@+id/ivHeart"
+        android:layout_width="30dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvDescription"
+        app:layout_constraintEnd_toStartOf="@+id/ivChat"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivImage"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="29dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@+id/ivChat"
+        app:layout_constraintTop_toTopOf="@+id/ivChat"
+        app:srcCompat="@drawable/send" />
+
 </android.support.constraint.ConstraintLayout>

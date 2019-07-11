@@ -24,19 +24,21 @@
         android:layout_width="385dp"
         android:layout_height="50dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Phone number, username, or email"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/btnLogIn"
-        android:layout_width="385dp"
-        android:layout_height="49dp"
+        android:layout_width="380dp"
+        android:layout_height="34dp"
+        android:background="#03A9F4"
         android:text="LOG IN"
+        android:textColor="#FAFFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -46,25 +48,30 @@
 
     <Button
         android:id="@+id/btnSignUp"
-        android:layout_width="318dp"
-        android:layout_height="53dp"
+        android:layout_width="383dp"
+        android:layout_height="36dp"
+        android:background="#03A9F4"
         android:text="Sign Up"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogIn" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="259dp"
+        android:layout_height="92dp"
+        android:fontFamily="@font/galada"
+        android:text="Instagram"
+        android:textColor="#F5050505"
+        android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/etUsername"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
