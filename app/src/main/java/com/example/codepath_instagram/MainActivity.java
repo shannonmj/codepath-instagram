@@ -2,6 +2,7 @@ package com.example.codepath_instagram;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etPassword;
     private Button btnLogIn;
     private Button btnSignUp;
+    Fragment PostsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
 
                     final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
+                    /*Fragment fragment = new PostsFragment();
+                    final FragmentManager fragmentManager = getSupportFragmentManager();
+
+                    /* whatever item is tapped on, make a fragment */
+                    //fragmentManager.beginTransaction().replace(R.id.flContainer, PostsFragment).commit();
+                    //return true;*/
+
                     // so that when user go backs they are not logged out
                     finish();
                 } else {

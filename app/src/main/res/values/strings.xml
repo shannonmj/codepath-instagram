@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">codepath-instagram</string>
+    <string name="app_name">Instagram</string>
     <string name="title_activity_home">HomeActivity</string>
 </resources>
