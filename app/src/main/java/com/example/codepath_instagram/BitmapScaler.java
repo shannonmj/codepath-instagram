@@ -1,3 +1,7 @@
+package com.example.codepath_instagram;
+
+import android.graphics.Bitmap;
+
 public class BitmapScaler
 {
 	// scale and keep aspect ratio

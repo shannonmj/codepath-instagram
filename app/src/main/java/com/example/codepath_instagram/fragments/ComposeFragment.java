@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.codepath_instagram.BitmapScaler;
 import com.example.codepath_instagram.R;
 import com.example.codepath_instagram.model.Post;
 import com.parse.ParseException;
@@ -37,6 +38,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class ComposeFragment extends Fragment {
 
+    private static final int SOME_WIDTH = 200;
     private EditText etDescription;
     private Button btnTakePic;
     private ImageView ivPostImage;
@@ -123,7 +125,7 @@ public class ComposeFragment extends Fragment {
                 // RESIZE BITMAP, see section below (if it says OVERLOAD)
                 // TODO look back for rotating image in guides for accessing the camera and check out hints at top
                 // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
-                Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(TakenImage, SOME_WIDTH);
+                Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(takenImage, SOME_WIDTH);
                 // Configure byte output stream
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 // Compress the image further
