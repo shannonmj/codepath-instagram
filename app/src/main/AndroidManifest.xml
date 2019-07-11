@@ -17,7 +17,6 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".DetailsActivity"></activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".TimelineActivity" />
         <activity android:name=".SignUpActivity" />
         <activity
             android:name=".HomeActivity"

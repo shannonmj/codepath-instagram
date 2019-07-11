@@ -1,5 +1,6 @@
 package com.example.codepath_instagram.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.codepath_instagram.EndlessRecyclerViewScrollListener;
 import com.example.codepath_instagram.PostsAdapter;
 import com.example.codepath_instagram.R;
 import com.example.codepath_instagram.model.Post;
@@ -24,10 +26,15 @@ import java.util.List;
 
 public class PostsFragment extends Fragment {
 
+    Context context;
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> mPosts;
     private SwipeRefreshLayout swipeContainer;
+
+    // Store a member variable for the listener
+    private EndlessRecyclerViewScrollListener scrollListener;
+    long maxId = 0;
 
 
 // onCreateView to inflate the view
@@ -53,6 +60,10 @@ public class PostsFragment extends Fragment {
         // set the layout manager on the recycler view
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        //create endless recycling view
+        LinearLayoutManager linearLayoutManager =  new LinearLayoutManager(context);
+
+
         queryPosts();
 
         //refresh extended activity
@@ -73,6 +84,41 @@ public class PostsFragment extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
+
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                loadNextDataFromApi(page);
+            }
+        };
+
+        // Adds the scroll listener to RecyclerView
+        rvPosts.addOnScrollListener(scrollListener);
+        // RecyclerView setup (layout manager, use adapter)
+        rvPosts.setLayoutManager(linearLayoutManager);
+        // set the adapter
+        rvPosts.setAdapter(adapter);
+        queryPosts();
+
+
+         // TODO add progress bar after posting tweet
+        // on some click or some loading we need to wait for...
+        /* ProgressBar pb = view.findViewById(R.id.pbLoading);
+        pb.setVisibility(ProgressBar.VISIBLE);
+        // run a background job and once complete
+        pb.setVisibility(ProgressBar.INVISIBLE); */
+    }
+
+    // TODO for endless scroll, check
+    public void loadNextDataFromApi(int offset) {
+        queryPosts();
+        // Send an API request to retrieve appropriate paginated data
+        //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+        //  --> Deserialize and construct new model objects from the API response
+        //  --> Append the new data objects to the existing set of items inside the array of items
+        //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
     }
 
     public void fetchTimelineAsync(int page) {
@@ -114,4 +160,5 @@ public class PostsFragment extends Fragment {
             }
         });
     }
+
 }
