@@ -1,6 +1,7 @@
 package com.example.codepath_instagram;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,7 +51,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     // first because want post adapter to extend recycler view
     // parametrized by view holder
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tvHandle;
         private ImageView ivImage;
@@ -63,6 +64,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvHandle = itemView.findViewById(R.id.tvHandle);
             ivImage = itemView.findViewById(R.id.ivImage);
             tvDescription = itemView.findViewById(R.id.tvDescription);
+
+            itemView.setOnClickListener(this);
 
         }
 
@@ -77,6 +80,25 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvDescription.setText(post.getDescription());
 
         }
+
+        // to click tweet and see detailview
+        @Override
+        public void onClick(View v) {
+            //gets item position
+            int position = getAdapterPosition();
+            //make sure the position is valid
+            if (position != RecyclerView.NO_POSITION) {
+                //get the tweet at the position
+                Post post = posts.get(position);
+                //create intent for the new activity
+                Intent intent = new Intent(context, DetailsActivity.class);
+                //serialize the tweet using the parceler,
+                intent.putExtra(Post.class.getSimpleName(), post);
+                //show activity
+                context.startActivity(intent);
+            }
+        }
+
     }
 
     // Clean all elements of the recycler
