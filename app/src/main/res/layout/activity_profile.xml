@@ -11,9 +11,14 @@
         android:layout_width="339dp"
         android:layout_height="49dp"
         android:text="Log Out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="153dp"
+        android:layout_height="167dp"
+        app:srcCompat="@color/colorPrimary"
+        tools:layout_editor_absoluteX="129dp"
+        tools:layout_editor_absoluteY="34dp" />
 </android.support.constraint.ConstraintLayout>
