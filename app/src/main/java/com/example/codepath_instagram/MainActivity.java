@@ -107,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     // or you can put login(username, password)
                 } else {
-
                     Log.e("SignUpActivity", "Sign Up failure");
                     e.printStackTrace();
                 }
