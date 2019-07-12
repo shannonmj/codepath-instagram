@@ -43,6 +43,9 @@ public class ComposeFragment extends Fragment {
     private Button btnTakePic;
     private ImageView ivPostImage;
     private Button btnPost;
+    //private ProgressBar pb;
+
+
 
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     public String photoFileName = "photo.jpg";
@@ -67,6 +70,7 @@ public class ComposeFragment extends Fragment {
         btnTakePic = view.findViewById(R.id.btnTakePic);
         ivPostImage = view.findViewById(R.id.ivPostImage);
         btnPost = view.findViewById(R.id.btnPost);
+
 
         btnTakePic.setOnClickListener(new View.OnClickListener() {
             @Override

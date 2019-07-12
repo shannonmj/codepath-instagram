@@ -6,16 +6,6 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
 
-    <!-- <ProgressBar
-        android:id="@+id/pbLoading"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> -->
-
 
     <TextView
         android:id="@+id/tvHandle"
@@ -57,7 +47,7 @@
         android:layout_width="32dp"
         android:layout_height="26dp"
         android:layout_marginRight="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/ivPlane"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ivHeart"
         app:layout_constraintTop_toTopOf="@+id/ivHeart"
@@ -78,7 +68,7 @@
         app:srcCompat="@drawable/heart" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivPlane"
         android:layout_width="29dp"
         android:layout_height="25dp"
         android:layout_marginLeft="8dp"

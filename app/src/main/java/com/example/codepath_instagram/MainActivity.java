@@ -35,10 +35,8 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
 
         // if someones already logged in then go to main page otherwise redirect them to login or sign up
-        // TODO check
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
-            // TODO do stuff with the user, take to timeline
             final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
             // so that when user go backs they are not logged out
@@ -79,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
                     final Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);
-                    /*Fragment fragment = new PostsFragment();
-                    final FragmentManager fragmentManager = getSupportFragmentManager();
-
-                    /* whatever item is tapped on, make a fragment */
-                    //fragmentManager.beginTransaction().replace(R.id.flContainer, PostsFragment).commit();
-                    //return true;*/
 
                     // so that when user go backs they are not logged out
                     finish();
@@ -115,10 +107,6 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     // or you can put login(username, password)
                 } else {
-
-                    // Sign up didn't succeed. Look at the ParseException
-                    // to figure out what went wrong
-                    // TODO
 
                     Log.e("SignUpActivity", "Sign Up failure");
                     e.printStackTrace();

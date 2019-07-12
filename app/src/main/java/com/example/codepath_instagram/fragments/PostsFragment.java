@@ -27,13 +27,14 @@ import java.util.List;
 public class PostsFragment extends Fragment {
 
     Context context;
-    private RecyclerView rvPosts;
+    public RecyclerView rvPosts;
     protected PostsAdapter adapter;
     protected List<Post> mPosts;
-    private SwipeRefreshLayout swipeContainer;
+    public SwipeRefreshLayout swipeContainer;
+    public int whichFragment;
 
     // Store a member variable for the listener
-    private EndlessRecyclerViewScrollListener scrollListener;
+    public EndlessRecyclerViewScrollListener scrollListener;
     long maxId = 0;
 
 
@@ -49,19 +50,38 @@ public class PostsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        rvPosts = view.findViewById(R.id.rvPosts);
+        rvPosts = view.findViewById(R.id.rvPostsView);
 
         // create the data source
         mPosts = new ArrayList<>();
+
         // create the adapter
-        adapter = new PostsAdapter(getContext(), mPosts);
+        //adapter = new PostsAdapter(getContext(), mPosts);
         // set the adapter on the recycler view
-        rvPosts.setAdapter(adapter);
+        //rvPosts.setAdapter(adapter);
         // set the layout manager on the recycler view
+        //rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        setRecyclerView(view);
+
+
+        // TODO add progress bar after posting tweet
+        // on some click or some loading we need to wait for...
+        /* ProgressBar pb = view.findViewById(R.id.pbLoading);
+        pb.setVisibility(ProgressBar.VISIBLE);
+        // run a background job and once complete
+        pb.setVisibility(ProgressBar.INVISIBLE); */
+    }
+
+    protected void setRecyclerView(View view) {
+        whichFragment = 0;
+
+        adapter = new PostsAdapter(getContext(), mPosts, whichFragment);
+        rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
         //create endless recycling view
-        LinearLayoutManager linearLayoutManager =  new LinearLayoutManager(context);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
 
 
         queryPosts();
@@ -101,14 +121,6 @@ public class PostsFragment extends Fragment {
         // set the adapter
         rvPosts.setAdapter(adapter);
         queryPosts();
-
-
-         // TODO add progress bar after posting tweet
-        // on some click or some loading we need to wait for...
-        /* ProgressBar pb = view.findViewById(R.id.pbLoading);
-        pb.setVisibility(ProgressBar.VISIBLE);
-        // run a background job and once complete
-        pb.setVisibility(ProgressBar.INVISIBLE); */
     }
 
     // TODO for endless scroll, check
@@ -125,7 +137,7 @@ public class PostsFragment extends Fragment {
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
-       // Remember to CLEAR OUT old items before appending in the new ones
+        // Remember to CLEAR OUT old items before appending in the new ones
         adapter.clear();
         // ...the data has come back, add new items to your adapter...
         //adapter.addAll(...);
@@ -153,7 +165,7 @@ public class PostsFragment extends Fragment {
                 adapter.notifyDataSetChanged();
 
 
-                for(int i = 0; i < posts.size(); i++) {
+                for (int i = 0; i < posts.size(); i++) {
                     Post post = posts.get(i);
                     Log.d("PostsFragment", "POST: " + posts.get(i).getDescription() + ", username: " + post.getUser().getUsername());
                 }

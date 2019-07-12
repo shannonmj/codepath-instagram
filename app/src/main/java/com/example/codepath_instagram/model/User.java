@@ -9,8 +9,6 @@ public class User {
     public String username;
     public String password;
 
-    // no-arg, empty constructor for parcel
-    //public User() {}
 
     //deserialize the JSON
     public static User fromJSON(JSONObject json) throws JSONException {
